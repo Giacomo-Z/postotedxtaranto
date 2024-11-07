@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trova il mio posto a TEDxTaranto</title>
+    <script>
+const posti = {
+    F19: { galleria: 1, palco: 1 },
+    F21: { galleria: 1, palco: 1 },
+    G19: { galleria: 1, palco: 1 },
+
+    F20: { galleria: 1, palco: 2 },
+    F22: { galleria: 1, palco: 2 },
+    G20: { galleria: 1, palco: 2 },
+
+    F17: { galleria: 1, palco: 3 },
+    F15: { galleria: 1, palco: 3 },
+    F13: { galleria: 1, palco: 3 },
+    G17: { galleria: 1, palco: 3 },
+    G15: { galleria: 1, palco: 3 },
+
+    F14: { galleria: 1, palco: 4 },
+    F16: { galleria: 1, palco: 4 },
+    F18: { galleria: 1, palco: 4 },
+    G14: { galleria: 1, palco: 4 },
+    G16: { galleria: 1, palco: 4 },
+
+    F11: { galleria: 1, palco: 5 },
+    F9: { galleria: 1, palco: 5 },
+    F7: { galleria: 1, palco: 5 },
+    G11: { galleria: 1, palco: 5 },
+    G9: { galleria: 1, palco: 5 },
+
+    F8: { galleria: 1, palco: 6 },
+    F10: { galleria: 1, palco: 6 },
+    F12: { galleria: 1, palco: 6 },
+    G8: { galleria: 1, palco: 6 },
+    G10: { galleria: 1, palco: 6 },
+
+    F2: { galleria: 1, palco: 8 },
+    F4: { galleria: 1, palco: 8 },
+    F6: { galleria: 1, palco: 8 },
+    G2: { galleria: 1, palco: 8 },
+    G4: { galleria: 1, palco: 8 },
+
+    F5: { galleria: 1, palco: 9 },
+    F3: { galleria: 1, palco: 9 },
+    F1: { galleria: 1, palco: 9 },
+    G5: { galleria: 1, palco: 9 },
+    G3: { galleria: 1, palco: 9 },
+
+    L39: { galleria: 2, palco: 11 },
+    L37: { galleria: 2, palco: 11 },
+    M39: { galleria: 2, palco: 11 },
+
+    L38: { galleria: 2, palco: 12 },
+    L40: { galleria: 2, palco: 12 },
+    M38: { galleria: 2, palco: 12 },
+
+    L35: { galleria: 2, palco: 13 },
+    L33: { galleria: 2, palco: 13 },
+    L31: { galleria: 2, palco: 13 },
+    M35: { galleria: 2, palco: 13 },
+    M33: { galleria: 2, palco: 13 },
+
+    L32: { galleria: 2, palco: 14 },
+    L34: { galleria: 2, palco: 14 },
+    L36: { galleria: 2, palco: 14 },
+    M32: { galleria: 2, palco: 14 },
+    M34: { galleria: 2, palco: 14 },
+
+    L29: { galleria: 2, palco: 15 },
+    L27: { galleria: 2, palco: 15 },
+    L25: { galleria: 2, palco: 15 },
+    M29: { galleria: 2, palco: 15 },
+    M27: { galleria: 2, palco: 15 },
+
+    L26: { galleria: 2, palco: 16 },
+    L28: { galleria: 2, palco: 16 },
+    L30: { galleria: 2, palco: 16 },
+    M26: { galleria: 2, palco: 16 },
+    M28: { galleria: 2, palco: 16 },
+
+    L23: { galleria: 2, palco: 17 },
+    L21: { galleria: 2, palco: 17 },
+    L19: { galleria: 2, palco: 17 },
+    M23: { galleria: 2, palco: 17 },
+    M21: { galleria: 2, palco: 17 },
+
+    L20: { galleria: 2, palco: 18 },
+    L22: { galleria: 2, palco: 18 },
+    L24: { galleria: 2, palco: 18 },
+    M20: { galleria: 2, palco: 18 },
+    M22: { galleria: 2, palco: 18 },
+
+    L17: { galleria: 2, palco: 19 },
+    L15: { galleria: 2, palco: 19 },
+    L13: { galleria: 2, palco: 19 },
+    M17: { galleria: 2, palco: 19 },
+    M15: { galleria: 2, palco: 19 },
+
+    L14: { galleria: 2, palco: 20 },
+    L16: { galleria: 2, palco: 20 },
+    L18: { galleria: 2, palco: 20 },
+    M14: { galleria: 2, palco: 20 },
+    M16: { galleria: 2, palco: 20 },
+
+    L11: { galleria: 2, palco: 21 },
+    L9: { galleria: 2, palco: 21 },
+    L7: { galleria: 2, palco: 21 },
+    M11: { galleria: 2, palco: 21 },
+    M9: { galleria: 2, palco: 21 },
+
+    L8: { galleria: 2, palco: 22 },
+    L10: { galleria: 2, palco: 22 },
+    L12: { galleria: 2, palco: 22 },
+    M8: { galleria: 2, palco: 22 },
+    M10: { galleria: 2, palco: 22 },
+
+    L5: { galleria: 2, palco: 23 },
+    L3: { galleria: 2, palco: 23 },
+    L1: { galleria: 2, palco: 23 },
+    M5: { galleria: 2, palco: 23 },
+    M3: { galleria: 2, palco: 23 },
+
+    L2: { galleria: 2, palco: 24 },
+    L4: { galleria: 2, palco: 24 },
+    L6: { galleria: 2, palco: 24 },
+    M2: { galleria: 2, palco: 24 },
+    M4: { galleria: 2, palco: 24 },
+    M6: { galleria: 2, palco: 24 },
+
+    N51: { galleria: 3, palco: 25 },
+    N49: { galleria: 3, palco: 25 },
+    O51: { galleria: 3, palco: 25 },
+
+    N52: { galleria: 3, palco: 26 },
+    N54: { galleria: 3, palco: 26 },
+    O52: { galleria: 3, palco: 26 },
+
+    N47: { galleria: 3, palco: 27 },
+    N45: { galleria: 3, palco: 27 },
+    N43: { galleria: 3, palco: 27 },
+    O47: { galleria: 3, palco: 27 },
+    O45: { galleria: 3, palco: 27 },
+
+    N46: { galleria: 3, palco: 28 },
+    N48: { galleria: 3, palco: 28 },
+    N50: { galleria: 3, palco: 28 },
+    O46: { galleria: 3, palco: 28 },
+    O48: { galleria: 3, palco: 28 },
+
+    N41: { galleria: 3, palco: 29 },
+    N39: { galleria: 3, palco: 29 },
+    N37: { galleria: 3, palco: 29 },
+    O41: { galleria: 3, palco: 29 },
+    O39: { galleria: 3, palco: 29 },
+
+    N40: { galleria: 3, palco: 30 },
+    N42: { galleria: 3, palco: 30 },
+    N44: { galleria: 3, palco: 30 },
+    O40: { galleria: 3, palco: 30 },
+    O42: { galleria: 3, palco: 30 },
+
+    N35: { galleria: 3, palco: 31 },
+    N33: { galleria: 3, palco: 31 },
+    N31: { galleria: 3, palco: 31 },
+    O35: { galleria: 3, palco: 31 },
+    O33: { galleria: 3, palco: 31 },
+
+    N34: { galleria: 3, palco: 32 },
+    N36: { galleria: 3, palco: 32 },
+    N38: { galleria: 3, palco: 32 },
+    O34: { galleria: 3, palco: 32 },
+    O36: { galleria: 3, palco: 32 },
+
+    N29: { galleria: 3, palco: 33 },
+    N27: { galleria: 3, palco: 33 },
+    N25: { galleria: 3, palco: 33 },
+    O29: { galleria: 3, palco: 33 },
+    O27: { galleria: 3, palco: 33 },
+
+    N28: { galleria: 3, palco: 34 },
+    N30: { galleria: 3, palco: 34 },
+    N32: { galleria: 3, palco: 34 },
+    O28: { galleria: 3, palco: 34 },
+    O30: { galleria: 3, palco: 34 },
+
+    N23: { galleria: 3, palco: 35 },
+    N21: { galleria: 3, palco: 35 },
+    N19: { galleria: 3, palco: 35 },
+    O23: { galleria: 3, palco: 35 },
+    O21: { galleria: 3, palco: 35 },
+
+    N22: { galleria: 3, palco: 36 },
+    N24: { galleria: 3, palco: 36 },
+    N26: { galleria: 3, palco: 36 },
+    O22: { galleria: 3, palco: 36 },
+    O24: { galleria: 3, palco: 36 },
+
+    N17: { galleria: 3, palco: 37 },
+    N15: { galleria: 3, palco: 37 },
+    N13: { galleria: 3, palco: 37 },
+    O17: { galleria: 3, palco: 37 },
+    O15: { galleria: 3, palco: 37 },
+
+    N16: { galleria: 3, palco: 38 },
+    N18: { galleria: 3, palco: 38 },
+    N20: { galleria: 3, palco: 38 },
+    O16: { galleria: 3, palco: 38 },
+    O18: { galleria: 3, palco: 38 },
+
+    N11: { galleria: 3, palco: 39 },
+    N9: { galleria: 3, palco: 39 },
+    N7: { galleria: 3, palco: 39 },
+    O11: { galleria: 3, palco: 39 },
+    O9: { galleria: 3, palco: 39 },
+    O7: { galleria: 3, palco: 39 },
+
+    N10: { galleria: 3, palco: 40 },
+    N12: { galleria: 3, palco: 40 },
+    N14: { galleria: 3, palco: 40 },
+    O10: { galleria: 3, palco: 40 },
+    O12: { galleria: 3, palco: 40 },
+    O14: { galleria: 3, palco: 40 },
+
+    N5: { galleria: 3, palco: 41 },
+    N3: { galleria: 3, palco: 41 },
+    N1: { galleria: 3, palco: 41 },
+    O5: { galleria: 3, palco: 41 },
+    O3: { galleria: 3, palco: 41 },
+    O1: { galleria: 3, palco: 41 },
+
+    N4: { galleria: 3, palco: 42 },
+    N6: { galleria: 3, palco: 42 },
+    N8: { galleria: 3, palco: 42 },
+    O2: { galleria: 3, palco: 42 },
+    O4: { galleria: 3, palco: 42 },
+    O6: { galleria: 3, palco: 42 },
+    O8: { galleria: 3, palco: 42 }
+};
+
+function cercaCodice() {
+    const codice = prompt("Inserisci il codice biglietto (ad. es. inserisci A12 se hai fila: A posto: 12) per conoscere Galleria e Palco di destinazione:");
+
+    const risultato = posti[codice.toUpperCase()];
+
+    if (risultato) {
+        alert(`Oh, eccoti qui! Sei in Galleria: ${risultato.galleria}, Palco: ${risultato.palco}. Buon divertimento!`);
+    } else {
+        alert("Oh no, questo codice non risulta in Galleria! Controlla che il codice sia corretto e che il tuo posto non sia in Loggione o in Platea!");
+    }
+}
+
+cercaCodice();
+    </script>
+</head>
+<body>
+    <h1>Trova il mio posto a TEDxTaranto</h1>
+</body>
+</html>
