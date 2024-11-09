@@ -249,7 +249,7 @@ const posti = {
 
 function cercaCodice() {
 	var codice = prompt("Inserisci il codice biglietto (ad. es. inserisci A12 se hai fila: A posto: 12) per conoscere Galleria e Palco di destinazione:");
-	codice = codice && codice.length > 1 ? codice : "";		
+	codice = codice && codice.length > 1 && codice.length < 5 ? codice : "";		
 	var risultato = posti[codice.toUpperCase()];
 	if (risultato) {
 	    	alert(`Oh, eccoti qui! Sei in Galleria: ${risultato.galleria}, Palco: ${risultato.palco}. Buon divertimento!`);
