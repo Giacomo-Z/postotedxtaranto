@@ -236,19 +236,31 @@ const posti = {
     O2: { galleria: 3, palco: 42 },
     O4: { galleria: 3, palco: 42 },
     O6: { galleria: 3, palco: 42 },
-    O8: { galleria: 3, palco: 42 }
+    O8: { galleria: 3, palco: 42 },
+
+    B: { galleria: 1, fila: 1 },
+    C: { galleria: 1, fila: 2 },
+    D: { galleria: 1, fila: 3 },
+    E: { galleria: 1, fila: 4 },
+    H: { galleria: 2, fila: 1 },
+    I: { galleria: 2, fila: 2 }
+	
 };
 
 function cercaCodice() {
-    const codice = prompt("Inserisci il codice biglietto (ad. es. inserisci A12 se hai fila: A posto: 12) per conoscere Galleria e Palco di destinazione:");
-
-    const risultato = posti[codice.toUpperCase()];
-
-    if (risultato) {
-        alert(`Oh, eccoti qui! Sei in Galleria: ${risultato.galleria}, Palco: ${risultato.palco}. Buon divertimento!`);
-    } else {
-        alert("Oh no, questo codice non risulta in Galleria! Controlla che il codice sia corretto e che il tuo posto non sia in Loggione o in Platea!");
-    }
+	var codice = prompt("Inserisci il codice biglietto (ad. es. inserisci A12 se hai fila: A posto: 12) per conoscere Galleria e Palco di destinazione:");
+	codice = codice ? codice : "";		
+	var risultato = posti[codice.toUpperCase()];
+	if (risultato) {
+	    	alert(`Oh, eccoti qui! Sei in Galleria: ${risultato.galleria}, Palco: ${risultato.palco}. Buon divertimento!`);
+	  } else {
+		risultato = posti[codice.charAt(0).toUpperCase()];
+		if (risultato) {
+	    		alert(`Oh, eccoti qui! Sei in Galleria: ${risultato.galleria}, Fila: ${risultato.fila}. Buon divertimento!`);
+	  	} else {
+	      		alert("Oh no, questo codice non risulta in Galleria! Controlla che il codice sia corretto e che il tuo posto non sia in Loggione o in Platea!");
+	  	}
+	}
 }
 
 cercaCodice();
