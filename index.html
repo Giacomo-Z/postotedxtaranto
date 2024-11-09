@@ -3,26 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trova il mio posto a TEDxTaranto</title>
 
-	
-<style>
-button {
-	background-color: red;
-	border: none;
-	color: white;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-}
-</style>
-</head>
-<body style="text-align: center; font-family: sans-serif">
-    <h1><span style="color: red">TEDx</span>Taranto</h1>
-	<h2>Vuoi cercare il tuo posto in Galleria?</h2>
-	<button onclick="cercaCodice()">CLICCA QUI</button>
-
-    <script>
+<script>
 const posti = {
     F19: { galleria: 1, palco: 1 },
     F21: { galleria: 1, palco: 1 },
@@ -282,7 +263,27 @@ function cercaCodice() {
 	  	}
 	}
 }
-cercaCodice();
+window.onload = function () {cercaCodice();};
 </script>
+	
+<style>
+button {
+	background-color: red;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+</style>
+</head>
+	
+<body style="text-align: center; font-family: sans-serif">
+    <h1><span style="color: red">TEDx</span>Taranto</h1>
+	<h2>Vuoi cercare il tuo posto in Galleria?</h2>
+	<button onclick="cercaCodice()">CLICCA QUI</button>
 </body>
+	
 </html>
