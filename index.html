@@ -629,13 +629,13 @@ function cercaCodice() {
 	/*logica bari*/
 	var codice = "";
 	var fila = prompt("Inserisci il numero o la lettera della 'Fila' che trovi sul tuo biglietto:");
-	codice = fila && fila.length > 1 && fila.length < 5 ? fila + "-" : "";
+	codice = fila && fila.length > 0 && fila.length < 3 ? fila + "-" : "";
 	var posto = prompt("Inserisci il numero del 'Posto' che trovi sul tuo biglietto:");
 	
-	codice = posto && posto.length > 1 && posto.length < 5 ? codice + posto : "";
-	var risultato = posti[codice.toUpperCase()];
+	codice = posto && posto.length > 0 && posto.length < 3 ? codice + posto : "";
+	var risultato = postiBari[codice.toUpperCase()];
 	if (risultato) {
-	    	alert(`Oh, eccoti qui! Sei in Ordine/Galleria: ${risultato.galleria}, Palco: ${risultato.palco}. Buon divertimento!`);
+	    	alert(`Oh, eccoti qui! Sei in Ordine/Galleria: ${risultato.ordine}, Palco: ${risultato.palco}. Buon divertimento!`);
 	  } else {
 		if ("I" == codice.charAt(0).toUpperCase()) {
 	    		alert(`Oh, NON sei in Galleria, la fila I corrisponde al Loggione! Buon divertimento!`);
@@ -688,6 +688,7 @@ button {
 </body>
 	
 </html>
+
 
 
 
